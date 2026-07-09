@@ -4,12 +4,14 @@
   <img src="./frontend/public/logo.png" width="140" alt="SNAPPY LLM Logo">
 </p>
 
-<h3 align="center">
-Fast • Smart • Modern AI Assistant
-</h3>
+<h1 align="center">SNAPPY LLM</h1>
 
 <p align="center">
-Built with React, FastAPI & Groq LLM
+Fast • Smart • Modern AI Assistant
+</p>
+
+<p align="center">
+Built with React, FastAPI, Groq & Modern AI Technologies
 </p>
 
 <p align="center">
@@ -27,32 +29,33 @@ Built with React, FastAPI & Groq LLM
 
 # 📖 Overview
 
-SNAPPY LLM is a modern AI-powered conversational assistant designed with a production-ready architecture.
+SNAPPY LLM is a modern AI-powered conversational assistant built using a production-ready React + FastAPI architecture.
 
-Unlike basic chatbot demos, SNAPPY connects to real Large Language Models through the **Groq API**, providing fast and intelligent responses with a beautiful user experience.
+Unlike basic chatbot demos, SNAPPY connects to real Large Language Models through the **Groq API**, delivering intelligent responses with an elegant, responsive user interface.
 
-The project follows a scalable **React + FastAPI** architecture, making it suitable for portfolios, internships, and real-world AI applications.
+The project is designed for scalability, clean architecture, and real-world AI applications, making it ideal for portfolios, internships, hackathons, and production-ready projects.
 
 ---
 
 # ✨ Features
 
-- 🤖 Real AI Responses
-- ⚡ Ultra Fast Groq Inference
+- 🤖 Real AI Responses using Groq LLM
+- ⚡ Ultra Fast Inference
 - 🧠 Multiple AI Models
+- 🌐 Smart Website Navigation
 - 💬 Conversation History
 - 📝 Markdown Rendering
-- 💻 Syntax Highlighting
+- 💻 Code Syntax Highlighting
 - 📋 Copy Code Blocks
 - 🔄 Regenerate Responses
-- 🌙 Dark / Light Theme
-- 📱 Responsive Design
 - 🔍 Search Conversations
-- ✏ Rename Chats
-- 🗑 Delete Chats
-- 💾 Local Storage
-- 🎨 Modern UI
-- 🏗 Modular Architecture
+- ✏ Rename Conversations
+- 🗑 Delete Conversations
+- 💾 Local Storage Support
+- 🌙 Dark / Light Theme
+- 📱 Fully Responsive Design
+- 🎨 Modern UI / UX
+- 🏗 Modular & Scalable Architecture
 
 ---
 
@@ -66,13 +69,17 @@ The project follows a scalable **React + FastAPI** architecture, making it suita
 - Tailwind CSS
 - Framer Motion
 - React Markdown
-- Highlight.js
+- React Syntax Highlighter
+- Lucide React
+
+---
 
 ## Backend
 
 - FastAPI
 - Python
 - Groq API
+- Tavily Search API (Foundation)
 - Pydantic
 - Uvicorn
 
@@ -126,7 +133,7 @@ npm install
 npm run dev
 ```
 
-Runs at:
+Runs on:
 
 ```
 http://localhost:5173
@@ -148,7 +155,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Runs at:
+Runs on:
 
 ```
 http://localhost:8000
@@ -174,6 +181,7 @@ Create `.env`
 
 ```env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
+TAVILY_API_KEY=YOUR_TAVILY_API_KEY
 ```
 
 ---
@@ -187,44 +195,62 @@ GROQ_API_KEY=YOUR_GROQ_API_KEY
 
 ---
 
-# 🏗 Architecture
+# 🏗 System Architecture
 
 ```text
-            React + Vite
-                 │
-                 ▼
-         FastAPI Backend
-                 │
-                 ▼
-             Groq API
-                 │
-                 ▼
-      Large Language Model
-                 │
-                 ▼
-          AI Generated Response
+                    React + Vite
+                          │
+                          ▼
+                  FastAPI Backend
+                          │
+          ┌───────────────┴───────────────┐
+          ▼                               ▼
+     Groq LLM API                 Tavily Search API
+          │                               │
+          └───────────────┬───────────────┘
+                          ▼
+                    SNAPPY LLM Engine
+                          │
+                          ▼
+                  AI Generated Response
 ```
 
 ---
 
-# 🚀 Future Roadmap
+# 🚀 Current Capabilities
 
-- 📄 PDF Chat
+- AI Chat Assistant
+- Multiple LLM Selection
+- Markdown Support
+- Syntax Highlighting
+- Smart Website Links
+- Conversation Management
+- Modern Responsive Interface
+- Local Conversation Storage
+
+---
+
+# 🛣 Future Roadmap
+
+- 🌐 Real-Time Web Search
+- 📎 File Upload (PDF, DOCX, Images)
+- 📄 PDF Chat (RAG)
 - 🖼 Image Understanding
 - 🎤 Voice Assistant
-- 🌐 Web Search
-- 📁 File Upload
-- 🧠 Memory
-- 🔐 Authentication
-- ☁ Cloud Deployment
+- 🔊 Text-to-Speech
+- 🧠 Long-Term Memory
 - 📤 Export Chat
-- RAG Support
+- 🔐 Authentication
+- ☁ Deployment (Vercel + Render)
+- 📊 Chat Analytics
+- 📌 Pin Conversations
+- 🌍 Multi-language Support
 
 ---
 
 # 📷 Screenshots
 
-> UI screenshots will be added soon.
+> Screenshots and demo GIFs will be added in future releases.
 
 ---
 
@@ -234,13 +260,21 @@ GROQ_API_KEY=YOUR_GROQ_API_KEY
 
 AI & Machine Learning Engineer
 
-GitHub
+**GitHub**
 
 https://github.com/aadi121k
 
-LinkedIn
+**LinkedIn**
 
 https://www.linkedin.com/in/adityaupadhyay5k
+
+---
+
+# 🤝 Contributing
+
+Contributions, feature suggestions and pull requests are welcome.
+
+If you find a bug or have an improvement idea, feel free to open an issue.
 
 ---
 
@@ -250,10 +284,12 @@ If you found this project helpful,
 
 please consider giving it a ⭐ on GitHub.
 
-It helps the project grow and motivates future development.
+It motivates future development and helps the project grow.
 
 ---
 
 <p align="center">
-Made with ❤️ using React, FastAPI and Groq
+
+Made with ❤️ using React, FastAPI, Groq & Python
+
 </p>
