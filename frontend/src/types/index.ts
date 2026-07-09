@@ -4,6 +4,12 @@ export interface Message {
   content: string;
   timestamp: Date;
   model?: AIModel;
+
+  attachment?: {
+    name: string;
+    type: string;
+    size: number;
+  };
 }
 
 export interface Conversation {

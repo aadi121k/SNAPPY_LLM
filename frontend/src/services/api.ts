@@ -130,13 +130,28 @@ export const updateConversation = async (
 
   return updated.find((c: Conversation) => c.id === id) || null;
 };
+export const uploadFile = async (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${API_URL}/chat/upload`, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!res.ok) {
+    throw new Error("File upload failed");
+  }
+
+  return await res.json();
+};
 
 export const apiService = {
   sendMessage,
+  uploadFile,
   createConversation,
   getConversations,
   deleteConversation,
   updateConversation,
 };
-
 export default apiService;

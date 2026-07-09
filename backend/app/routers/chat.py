@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, UploadFile, File
 
 from app.schemas.chat import ChatRequest, ChatResponse
 from app.services.chat_service import chat_service
@@ -19,3 +19,12 @@ async def chat(request: ChatRequest):
     return ChatResponse(
         response=response
     )
+
+
+@router.post("/upload")
+async def upload_file(file: UploadFile = File(...)):
+    return {
+        "filename": file.filename,
+        "content_type": file.content_type,
+        "size": len(await file.read()),
+    }

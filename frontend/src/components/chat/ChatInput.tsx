@@ -4,6 +4,7 @@ import { Send, Paperclip, Trash2, StopCircle } from 'lucide-react';
 import { Button, Textarea } from '../ui';
 import { useAutoResizeTextarea } from '../../hooks';
 import { AIModel } from '../../types';
+import apiService from "../../services/api";
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -45,24 +46,31 @@ export const ChatInput: React.FC<ChatInputProps> = ({
 
   const fileInput = document.createElement("input");
 
-const handleAttachment = () => {
+const handleAttachment = async () => {
   fileInput.type = "file";
-  fileInput.accept =
-    ".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg";
+  fileInput.accept = ".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg";
 
-  fileInput.onchange = (e: any) => {
+  fileInput.onchange = async (e: any) => {
     const file = e.target.files?.[0];
 
     if (!file) return;
 
-    console.log(file);
+    try {
+      const result = await apiService.uploadFile(file);
 
-    alert(`Selected: ${file.name}`);
+      alert(`✅ Uploaded Successfully
+
+File: ${result.filename}
+Type: ${result.content_type}
+Size: ${result.size} bytes`);
+    } catch (err) {
+      console.error(err);
+      alert("❌ Upload Failed");
+    }
   };
 
   fileInput.click();
 };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
