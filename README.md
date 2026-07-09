@@ -240,7 +240,7 @@ https://github.com/aadi121k
 
 LinkedIn
 
-https://www.linkedin.com/in/aditya-kumar-upadhyay/
+https://www.linkedin.com/in/adityaupadhyay5k
 
 ---
 
