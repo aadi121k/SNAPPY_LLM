@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { motion } from 'framer-motion';
@@ -75,7 +76,19 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           ) : (
             <div className="prose prose-sm prose-slate max-w-none prose-pre:bg-slate-50 prose-pre:border prose-pre:border-slate-200 prose-code:text-indigo-600">
               <ReactMarkdown
-                components={{
+  remarkPlugins={[remarkGfm]}
+  components={{a({ href, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 hover:text-blue-700 underline font-medium"
+    >
+      {children}
+    </a>
+  );
+},
                   code({ className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
                     const lang = match ? match[1] : '';

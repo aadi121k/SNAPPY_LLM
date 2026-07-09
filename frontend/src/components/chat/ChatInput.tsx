@@ -43,9 +43,25 @@ export const ChatInput: React.FC<ChatInputProps> = ({
     }
   };
 
-  const handleAttachment = () => {
-    alert('File attachment feature coming soon!');
+  const fileInput = document.createElement("input");
+
+const handleAttachment = () => {
+  fileInput.type = "file";
+  fileInput.accept =
+    ".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg";
+
+  fileInput.onchange = (e: any) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    console.log(file);
+
+    alert(`Selected: ${file.name}`);
   };
+
+  fileInput.click();
+};
 
   return (
     <motion.div
@@ -73,7 +89,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
               title="Attach file"
               disabled={isLoading}
             >
-              <Paperclip size={18} />
+              <Paperclip size={24} className="text-red-600" />
             </button>
 
             {onClear && (
