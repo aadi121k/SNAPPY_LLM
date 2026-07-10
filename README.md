@@ -7,11 +7,11 @@
 <h1 align="center">SNAPPY LLM</h1>
 
 <p align="center">
-Fast • Smart • Modern AI Assistant
+Fast ⚡ Smart 🧠 Modern AI Assistant
 </p>
 
 <p align="center">
-Built with React, FastAPI, Groq & Modern AI Technologies
+Built with React, FastAPI, Groq, Tavily & Modern AI Technologies
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@ Built with React, FastAPI, Groq & Modern AI Technologies
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.116-009688?logo=fastapi)
 ![Python](https://img.shields.io/badge/Python-3.11-yellow?logo=python)
-![Groq](https://img.shields.io/badge/Powered%20By-Groq-orange)
+![Groq](https://img.shields.io/badge/Groq-LLM-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 </p>
@@ -29,52 +29,49 @@ Built with React, FastAPI, Groq & Modern AI Technologies
 
 # 📖 Overview
 
-SNAPPY LLM is a modern AI-powered conversational assistant built with a production-ready **React + FastAPI** architecture.
+SNAPPY LLM is a modern AI-powered conversational assistant inspired by ChatGPT. It combines **Groq LLMs**, **real-time web search**, **AI image responses**, and a clean React interface to deliver fast, intelligent and interactive conversations.
 
-Unlike traditional chatbot demos, SNAPPY integrates real Large Language Models through the **Groq API**, supports **real-time web search**, **AI-powered image responses**, and delivers a clean, responsive, ChatGPT-inspired experience.
-
-The project is designed with scalability, modular architecture, and future AI capabilities in mind, making it suitable for portfolios, internships, hackathons, and production-ready AI applications.
+The project is built with a scalable **React + FastAPI** architecture and is designed for portfolios, hackathons and production-ready AI applications.
 
 ---
 
-# 🚀 Project Status
+# 🚀 Current Features
 
-> 🟢 **Actively Under Development**
-
-### Latest Features
-
-- ✅ Real AI Responses
-- ✅ Multiple AI Models
-- ✅ Real-Time Web Search
-- ✅ AI Image Support
-- ✅ Markdown Rendering
-- ✅ Syntax Highlighting
-- ✅ Smart Website Navigation
-- ✅ Modern Dark / Light Theme
-
----
-
-# ✨ Features
-
-- 🤖 Real AI Responses using Groq LLM
+- 🤖 Real AI Responses (Groq)
 - ⚡ Ultra Fast Inference
 - 🧠 Multiple AI Models
 - 🌐 Real-Time Web Search (Tavily)
-- 🖼 AI Image Support
+- 🖼 AI Image Responses
 - 🔗 Smart Website Navigation
 - 💬 Conversation History
 - 📝 Markdown Rendering
-- 💻 Code Syntax Highlighting
+- 💻 Syntax Highlighting
 - 📋 Copy Code Blocks
 - 🔄 Regenerate Responses
 - 🔍 Search Conversations
-- ✏ Rename Conversations
-- 🗑 Delete Conversations
+- ✏ Rename Chats
+- 🗑 Delete Chats
 - 💾 Local Storage
 - 🌙 Dark / Light Theme
-- 📱 Responsive Design
-- 🎨 Modern ChatGPT Inspired UI
-- 🏗 Modular Architecture
+- 📱 Fully Responsive UI
+- 🎨 Modern ChatGPT-inspired Design
+
+---
+
+# 🧠 Supported Models
+
+- Llama 3.3
+- DeepSeek
+- Gemma
+- Kimi
+
+---
+
+# 🌐 APIs Used
+
+- Groq API
+- Tavily Search API
+- Unsplash API
 
 ---
 
@@ -91,17 +88,13 @@ The project is designed with scalability, modular architecture, and future AI ca
 - React Syntax Highlighter
 - Lucide React
 
----
-
-## Backend
+### Backend
 
 - FastAPI
 - Python
-- Groq API
-- Tavily Search API
-- Unsplash API
 - Pydantic
 - Uvicorn
+- Groq SDK
 
 ---
 
@@ -111,18 +104,15 @@ The project is designed with scalability, modular architecture, and future AI ca
 SNAPPY_LLM
 │
 ├── frontend
-│   ├── public
-│   ├── src
 │   ├── components
 │   ├── contexts
 │   ├── hooks
-│   ├── services
 │   ├── pages
-│   └── package.json
+│   ├── services
+│   ├── types
+│   └── utils
 │
 ├── backend
-│   ├── app
-│   │
 │   ├── config
 │   ├── providers
 │   ├── routers
@@ -135,7 +125,7 @@ SNAPPY_LLM
 
 ---
 
-# ⚙ Installation
+# ⚙️ Installation
 
 ## Clone Repository
 
@@ -157,7 +147,7 @@ npm install
 npm run dev
 ```
 
-Runs on
+Runs at:
 
 ```
 http://localhost:5173
@@ -179,10 +169,10 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Runs on
+Runs at
 
 ```
-http://localhost:8000
+http://127.0.0.1:8000
 ```
 
 ---
@@ -209,62 +199,54 @@ GROQ_API_KEY=YOUR_GROQ_API_KEY
 TAVILY_API_KEY=YOUR_TAVILY_API_KEY
 
 UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_ACCESS_KEY
-
-PEXELS_API_KEY=YOUR_PEXELS_API_KEY
 ```
-
----
-
-# 🧠 Supported Models
-
-- Llama 3.3
-- DeepSeek
-- Gemma
-- Kimi
 
 ---
 
 # 🏗 System Architecture
 
 ```text
-                           React + Vite
-                                │
-                                ▼
-                         FastAPI Backend
-                                │
-          ┌─────────────────────┼──────────────────────┐
-          ▼                     ▼                      ▼
-      Groq LLM            Tavily Search          Image Engine
-          │                     │                      │
-          └──────────────┬──────┴──────────────┬──────┘
-                         ▼                     ▼
-                  AI Response            Unsplash Images
+                      React + Vite
+                            │
+                            ▼
+                     FastAPI Backend
+                            │
+          ┌─────────────────┼──────────────────┐
+          ▼                 ▼                  ▼
+      Groq API        Tavily Search      Image Engine
+          │                 │                  │
+          └─────────────────┴──────────────────┘
+                            │
+                            ▼
+                    SNAPPY LLM Engine
+                            │
+                            ▼
+                  AI Generated Response
 ```
 
 ---
 
 # 🚀 Current Capabilities
 
-- 🤖 AI Chat Assistant
-- 🧠 Multiple LLM Selection
-- 🌐 Real-Time Web Search
-- 🖼 AI Image Responses
-- 📝 Markdown Rendering
-- 💻 Syntax Highlighting
-- 📋 Copy Code Blocks
-- 🔗 Smart Website Navigation
-- 💬 Conversation History
-- 💾 Local Storage
-- 🌙 Dark / Light Theme
-- 📱 Responsive UI
+- AI Chat Assistant
+- Multiple LLM Support
+- Real-Time Web Search
+- AI Image Responses
+- Markdown Rendering
+- Code Highlighting
+- Copy Code Button
+- Smart Website Opening
+- Conversation History
+- Responsive UI
+- Dark & Light Theme
 
 ---
 
 # 🛣 Roadmap
 
+- 👤 Better Person Images (Wikipedia API)
 - 📄 PDF Chat (RAG)
 - 📎 File Upload
-- 👤 Better Person Images (Wikipedia API)
 - 🎥 Streaming Responses
 - 🖼 Image Understanding
 - 🎤 Voice Assistant
@@ -272,16 +254,32 @@ PEXELS_API_KEY=YOUR_PEXELS_API_KEY
 - 🧠 Long-Term Memory
 - 📤 Export Chats
 - 🔐 Authentication
-- ☁ Deployment (Vercel + Render)
-- 📊 Chat Analytics
-- 📌 Pin Conversations
+- ☁ Deploy (Vercel + Render)
 - 🌍 Multi-language Support
 
 ---
 
 # 📷 Screenshots
 
-> Screenshots, GIFs and Live Demo will be added soon.
+> Screenshots & demo GIFs will be added soon.
+
+---
+
+# 💡 Why SNAPPY LLM?
+
+✅ Fast AI responses using Groq
+
+✅ Real-time web search
+
+✅ AI image support
+
+✅ Beautiful modern UI
+
+✅ Multiple LLM selection
+
+✅ Clean and scalable architecture
+
+✅ Portfolio & Hackathon ready
 
 ---
 
@@ -303,24 +301,24 @@ https://www.linkedin.com/in/adityaupadhyay5k
 
 # 🤝 Contributing
 
-Contributions, feature requests, suggestions and pull requests are welcome.
+Contributions, feature suggestions and pull requests are welcome.
 
-If you find any bugs or have ideas to improve SNAPPY LLM, feel free to open an Issue or Pull Request.
+If you find a bug or have an improvement idea, feel free to open an Issue.
 
 ---
 
 # ⭐ Support
 
-If you found this project useful,
+If you like this project,
 
-please consider giving it a ⭐ on GitHub.
+please give it a ⭐ on GitHub.
 
-Your support motivates future development.
+It motivates future development.
 
 ---
 
 <p align="center">
 
-Made with ❤️ using React, FastAPI, Groq, Tavily & Modern AI Technologies
+Made with ❤️ using React, FastAPI, Groq, Tavily & Modern AI
 
 </p>
