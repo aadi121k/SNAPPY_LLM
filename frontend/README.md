@@ -182,7 +182,7 @@ AI/ML Engineer
 
 GitHub: https://github.com/aadi121k
 
-LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
+LinkedIn: https://linkedin.com/in/adityaupadhyay5k
 
 ---
 
