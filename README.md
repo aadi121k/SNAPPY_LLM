@@ -29,11 +29,28 @@ Built with React, FastAPI, Groq & Modern AI Technologies
 
 # 📖 Overview
 
-SNAPPY LLM is a modern AI-powered conversational assistant built using a production-ready React + FastAPI architecture.
+SNAPPY LLM is a modern AI-powered conversational assistant built with a production-ready **React + FastAPI** architecture.
 
-Unlike basic chatbot demos, SNAPPY connects to real Large Language Models through the **Groq API**, delivering intelligent responses with an elegant, responsive user interface.
+Unlike traditional chatbot demos, SNAPPY integrates real Large Language Models through the **Groq API**, supports **real-time web search**, **AI-powered image responses**, and delivers a clean, responsive, ChatGPT-inspired experience.
 
-The project is designed for scalability, clean architecture, and real-world AI applications, making it ideal for portfolios, internships, hackathons, and production-ready projects.
+The project is designed with scalability, modular architecture, and future AI capabilities in mind, making it suitable for portfolios, internships, hackathons, and production-ready AI applications.
+
+---
+
+# 🚀 Project Status
+
+> 🟢 **Actively Under Development**
+
+### Latest Features
+
+- ✅ Real AI Responses
+- ✅ Multiple AI Models
+- ✅ Real-Time Web Search
+- ✅ AI Image Support
+- ✅ Markdown Rendering
+- ✅ Syntax Highlighting
+- ✅ Smart Website Navigation
+- ✅ Modern Dark / Light Theme
 
 ---
 
@@ -42,7 +59,9 @@ The project is designed for scalability, clean architecture, and real-world AI a
 - 🤖 Real AI Responses using Groq LLM
 - ⚡ Ultra Fast Inference
 - 🧠 Multiple AI Models
-- 🌐 Smart Website Navigation
+- 🌐 Real-Time Web Search (Tavily)
+- 🖼 AI Image Support
+- 🔗 Smart Website Navigation
 - 💬 Conversation History
 - 📝 Markdown Rendering
 - 💻 Code Syntax Highlighting
@@ -51,11 +70,11 @@ The project is designed for scalability, clean architecture, and real-world AI a
 - 🔍 Search Conversations
 - ✏ Rename Conversations
 - 🗑 Delete Conversations
-- 💾 Local Storage Support
+- 💾 Local Storage
 - 🌙 Dark / Light Theme
-- 📱 Fully Responsive Design
-- 🎨 Modern UI / UX
-- 🏗 Modular & Scalable Architecture
+- 📱 Responsive Design
+- 🎨 Modern ChatGPT Inspired UI
+- 🏗 Modular Architecture
 
 ---
 
@@ -79,7 +98,8 @@ The project is designed for scalability, clean architecture, and real-world AI a
 - FastAPI
 - Python
 - Groq API
-- Tavily Search API (Foundation)
+- Tavily Search API
+- Unsplash API
 - Pydantic
 - Uvicorn
 
@@ -93,8 +113,12 @@ SNAPPY_LLM
 ├── frontend
 │   ├── public
 │   ├── src
-│   ├── package.json
-│   └── vite.config.ts
+│   ├── components
+│   ├── contexts
+│   ├── hooks
+│   ├── services
+│   ├── pages
+│   └── package.json
 │
 ├── backend
 │   ├── app
@@ -113,7 +137,7 @@ SNAPPY_LLM
 
 # ⚙ Installation
 
-## 1️⃣ Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/aadi121k/SNAPPY_LLM.git
@@ -123,7 +147,7 @@ cd SNAPPY_LLM
 
 ---
 
-## 2️⃣ Frontend
+## Frontend
 
 ```bash
 cd frontend
@@ -133,7 +157,7 @@ npm install
 npm run dev
 ```
 
-Runs on:
+Runs on
 
 ```
 http://localhost:5173
@@ -141,7 +165,7 @@ http://localhost:5173
 
 ---
 
-## 3️⃣ Backend
+## Backend
 
 ```bash
 cd backend
@@ -155,7 +179,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Runs on:
+Runs on
 
 ```
 http://localhost:8000
@@ -165,7 +189,7 @@ http://localhost:8000
 
 # 🔑 Environment Variables
 
-### Frontend
+## Frontend
 
 Create `.env`
 
@@ -175,31 +199,21 @@ VITE_API_URL=http://127.0.0.1:8000
 
 ---
 
-### Backend
+## Backend
 
 Create `.env`
 
 ```env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
+
 TAVILY_API_KEY=YOUR_TAVILY_API_KEY
+
+UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_ACCESS_KEY
+
+PEXELS_API_KEY=YOUR_PEXELS_API_KEY
 ```
 
 ---
-2️⃣ Backend __pycache__ delete
-
-Backend folder me:
-
-PowerShell
-Get-ChildItem -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
-3️⃣ Python .pyc files delete
-Get-ChildItem -Recurse -Filter "*.pyc" | Remove-Item -Force
-4️⃣ Frontend Vite cache delete
-
-Project root se:
-
-Remove-Item -Recurse -Force frontend\node_modules\.vite -ErrorAction SilentlyContinue
-5️⃣ npm cache (optional)
-npm cache clean --force
 
 # 🧠 Supported Models
 
@@ -213,48 +227,50 @@ npm cache clean --force
 # 🏗 System Architecture
 
 ```text
-                    React + Vite
-                          │
-                          ▼
-                  FastAPI Backend
-                          │
-          ┌───────────────┴───────────────┐
-          ▼                               ▼
-     Groq LLM API                 Tavily Search API
-          │                               │
-          └───────────────┬───────────────┘
-                          ▼
-                    SNAPPY LLM Engine
-                          │
-                          ▼
-                  AI Generated Response
+                           React + Vite
+                                │
+                                ▼
+                         FastAPI Backend
+                                │
+          ┌─────────────────────┼──────────────────────┐
+          ▼                     ▼                      ▼
+      Groq LLM            Tavily Search          Image Engine
+          │                     │                      │
+          └──────────────┬──────┴──────────────┬──────┘
+                         ▼                     ▼
+                  AI Response            Unsplash Images
 ```
 
 ---
 
 # 🚀 Current Capabilities
 
-- AI Chat Assistant
-- Multiple LLM Selection
-- Markdown Support
-- Syntax Highlighting
-- Smart Website Links
-- Conversation Management
-- Modern Responsive Interface
-- Local Conversation Storage
+- 🤖 AI Chat Assistant
+- 🧠 Multiple LLM Selection
+- 🌐 Real-Time Web Search
+- 🖼 AI Image Responses
+- 📝 Markdown Rendering
+- 💻 Syntax Highlighting
+- 📋 Copy Code Blocks
+- 🔗 Smart Website Navigation
+- 💬 Conversation History
+- 💾 Local Storage
+- 🌙 Dark / Light Theme
+- 📱 Responsive UI
 
 ---
 
-# 🛣 Future Roadmap
+# 🛣 Roadmap
 
-- 🌐 Real-Time Web Search
-- 📎 File Upload (PDF, DOCX, Images)
 - 📄 PDF Chat (RAG)
+- 📎 File Upload
+- 👤 Better Person Images (Wikipedia API)
+- 🎥 Streaming Responses
 - 🖼 Image Understanding
 - 🎤 Voice Assistant
-- 🔊 Text-to-Speech
+- 🔊 Text To Speech
 - 🧠 Long-Term Memory
-- 📤 Export Chat
+- 📤 Export Chats
 - 🔐 Authentication
 - ☁ Deployment (Vercel + Render)
 - 📊 Chat Analytics
@@ -265,13 +281,13 @@ npm cache clean --force
 
 # 📷 Screenshots
 
-> Screenshots and demo GIFs will be added in future releases.
+> Screenshots, GIFs and Live Demo will be added soon.
 
 ---
 
 # 👨‍💻 Developer
 
-**Aditya Kumar Upadhyay**
+### Aditya Kumar Upadhyay
 
 AI & Machine Learning Engineer
 
@@ -287,24 +303,24 @@ https://www.linkedin.com/in/adityaupadhyay5k
 
 # 🤝 Contributing
 
-Contributions, feature suggestions and pull requests are welcome.
+Contributions, feature requests, suggestions and pull requests are welcome.
 
-If you find a bug or have an improvement idea, feel free to open an issue.
+If you find any bugs or have ideas to improve SNAPPY LLM, feel free to open an Issue or Pull Request.
 
 ---
 
 # ⭐ Support
 
-If you found this project helpful,
+If you found this project useful,
 
 please consider giving it a ⭐ on GitHub.
 
-It motivates future development and helps the project grow.
+Your support motivates future development.
 
 ---
 
 <p align="center">
 
-Made with ❤️ using React, FastAPI, Groq & Python
+Made with ❤️ using React, FastAPI, Groq, Tavily & Modern AI Technologies
 
 </p>
