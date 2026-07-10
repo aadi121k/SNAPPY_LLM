@@ -10,8 +10,14 @@ export interface Message {
     type: string;
     size: number;
   };
-}
 
+  images?: {
+    title: string;
+    image: string;
+    author: string;
+    link: string;
+  }[];
+}
 export interface Conversation {
   id: string;
   title: string;

@@ -73,7 +73,12 @@ const ChatContent: React.FC = () => {
         model: settings.model,
       });
 
-      addMessage(response.message.content, 'assistant', response.message.model);
+      addMessage(
+    response.message.content,
+    'assistant',
+    response.message.model,
+    response.message.images
+);
     } catch (error) {
       console.error('Error sending message:', error);
       addMessage(

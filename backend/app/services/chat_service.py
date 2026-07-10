@@ -1,3 +1,4 @@
+from app.services.image_service import image_service
 from app.providers.groq_provider import groq_provider
 from app.config.settings import settings
 from app.services.search_service import search_service
@@ -99,7 +100,6 @@ Web Search Results:
 
 {web_context}
 """
-
         response = self.client.chat.completions.create(
             model=groq_model,
             messages=[
@@ -116,7 +116,12 @@ Web Search Results:
             max_tokens=settings.MAX_TOKENS,
         )
 
-        return response.choices[0].message.content
+        images = image_service.get_images(message)
+
+        return {
+            "response": response.choices[0].message.content,
+            "images": images,
+        }
 
 
 chat_service = ChatService()

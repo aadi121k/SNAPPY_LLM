@@ -9,7 +9,12 @@ interface ChatContextType {
   searchQuery: string;
   setCurrentConversation: (conversation: Conversation | null) => void;
   createNewConversation: (model: AIModel) => Conversation;
-  addMessage: (content: string, role: 'user' | 'assistant', model?: AIModel) => void;
+  addMessage: (
+  content: string,
+  role: 'user' | 'assistant',
+  model?: AIModel,
+  images?: Message["images"]
+) => void;
   renameConversation: (id: string, title: string) => void;
   deleteConversation: (id: string) => void;
   toggleSaveConversation: (id: string) => void;
@@ -65,16 +70,21 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return newConv;
   }, []);
 
-  const addMessage = useCallback((content: string, role: 'user' | 'assistant', model?: AIModel) => {
+  const addMessage = useCallback((
+  content: string,
+  role: 'user' | 'assistant',
+  model?: AIModel,
+  images?: Message["images"]
+) => {
     if (!currentConversation) return;
-
-    const message: Message = {
-      id: generateId(),
-      role,
-      content,
-      timestamp: new Date(),
-      model,
-    };
+const message: Message = {
+    id: generateId(),
+    role,
+    content,
+    timestamp: new Date(),
+    model,
+    images,
+};
 
     setCurrentConversation(prev => {
       if (!prev) return prev;

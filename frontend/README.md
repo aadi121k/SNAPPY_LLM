@@ -93,25 +93,19 @@ git clone https://github.com/YOUR_USERNAME/SNAPPY_LLM.git
 ### Frontend
 
 ```bash
-cd frontend
-
-npm install
+cd C:\Users\aadik\Downloads\Snappy_AI-main\frontend
 
 npm run dev
-```
 
 ---
 
 ### Backend
 
 ```bash
-cd backend
-
-python -m venv venv
+cd C:\Users\aadik\Downloads\Snappy_AI-main\backend
 
 venv\Scripts\activate
 
-pip install -r requirements.txt
 
 python -m uvicorn app.main:app --reload
 ```

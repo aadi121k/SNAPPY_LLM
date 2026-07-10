@@ -13,11 +13,16 @@ interface SendMessageResponse {
   message: Message;
   conversationId: string;
 }
-
 interface ChatApiResponse {
   response: string;
-}
 
+  images?: {
+    title: string;
+    image: string;
+    author: string;
+    link: string;
+  }[];
+}
 export const sendMessage = async (
   params: SendMessageParams
 ): Promise<SendMessageResponse> => {
@@ -39,14 +44,14 @@ export const sendMessage = async (
 
     const data: ChatApiResponse = await res.json();
 
-    const assistantMessage: Message = {
-      id: generateId(),
-      role: 'assistant',
-      content: data.response,
-      timestamp: new Date(),
-      model: params.model,
-    };
-
+   const assistantMessage: Message = {
+  id: generateId(),
+  role: 'assistant',
+  content: data.response,
+  timestamp: new Date(),
+  model: params.model,
+  images: data.images || [],
+};
     return {
       message: assistantMessage,
       conversationId: params.conversationId || generateId(),

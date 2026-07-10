@@ -143,6 +143,29 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               >
                 {message.content}
               </ReactMarkdown>
+              {message.images && message.images.length > 0 && (
+  <div className="mt-4 grid grid-cols-2 gap-3">
+    {message.images.map((img, index) => (
+      <a
+        key={index}
+        href={img.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block"
+      >
+        <img
+          src={img.image}
+          alt={img.title}
+          className="w-full h-40 rounded-xl object-cover border border-slate-200 hover:scale-105 transition-transform duration-300"
+        />
+
+        <p className="mt-2 text-xs text-slate-500 line-clamp-2">
+          {img.title}
+        </p>
+      </a>
+    ))}
+  </div>
+)}
             </div>
           )}
         </div>

@@ -185,6 +185,21 @@ TAVILY_API_KEY=YOUR_TAVILY_API_KEY
 ```
 
 ---
+2️⃣ Backend __pycache__ delete
+
+Backend folder me:
+
+PowerShell
+Get-ChildItem -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+3️⃣ Python .pyc files delete
+Get-ChildItem -Recurse -Filter "*.pyc" | Remove-Item -Force
+4️⃣ Frontend Vite cache delete
+
+Project root se:
+
+Remove-Item -Recurse -Force frontend\node_modules\.vite -ErrorAction SilentlyContinue
+5️⃣ npm cache (optional)
+npm cache clean --force
 
 # 🧠 Supported Models
 

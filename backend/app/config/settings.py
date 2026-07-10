@@ -11,6 +11,8 @@ class Settings:
 
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+    UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
+    PEXELS_API_KEY = os.getenv("PEXELS_API_KEY")
 
     DEFAULT_MODEL = "llama-3.3-70b-versatile"
 

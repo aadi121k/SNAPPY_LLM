@@ -11,15 +11,21 @@ router = APIRouter(
 
 @router.post("/", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    response = chat_service.generate_response(
+    result = chat_service.generate_response(
         message=request.message,
         model=request.model,
     )
 
-    return ChatResponse(
-        response=response
-    )
+    if isinstance(result, dict):
+        return ChatResponse(
+            response=result.get("response", ""),
+            images=result.get("images", []),
+        )
 
+    return ChatResponse(
+        response=result,
+        images=[],
+    )
 
 @router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
