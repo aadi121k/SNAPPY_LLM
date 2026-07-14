@@ -41,9 +41,14 @@ The project is built with a scalable **React + FastAPI** architecture and is des
 - ⚡ Ultra Fast Inference
 - 🧠 Multiple AI Models
 - 🌐 Real-Time Web Search (Tavily)
-- 🖼 AI Image Responses
+- 🔐 Google Authentication (Firebase)
+- 👤 Personalized User Profile
+- 👨‍💻 Creator Profile Integration
+- 🖼 Smart AI Image Engine
+- 🖼 Dynamic Creator Image Support
 - 🔗 Smart Website Navigation
 - 💬 Conversation History
+- 🧠 Context-Aware Conversation (Memory Foundation)
 - 📝 Markdown Rendering
 - 💻 Syntax Highlighting
 - 📋 Copy Code Blocks
@@ -51,10 +56,11 @@ The project is built with a scalable **React + FastAPI** architecture and is des
 - 🔍 Search Conversations
 - ✏ Rename Chats
 - 🗑 Delete Chats
-- 💾 Local Storage
+- 💾 Local Chat Storage
 - 🌙 Dark / Light Theme
 - 📱 Fully Responsive UI
 - 🎨 Modern ChatGPT-inspired Design
+- ⚙ Smart Model Switching
 
 ---
 
@@ -72,6 +78,8 @@ The project is built with a scalable **React + FastAPI** architecture and is des
 - Groq API
 - Tavily Search API
 - Unsplash API
+- Wikimedia Commons API
+- Firebase Authentication
 
 ---
 
@@ -84,6 +92,7 @@ The project is built with a scalable **React + FastAPI** architecture and is des
 - Vite
 - Tailwind CSS
 - Framer Motion
+- Firebase Authentication
 - React Markdown
 - React Syntax Highlighter
 - Lucide React
@@ -95,7 +104,8 @@ The project is built with a scalable **React + FastAPI** architecture and is des
 - Pydantic
 - Uvicorn
 - Groq SDK
-
+- Requests
+- spaCy (Image Classification)
 ---
 
 # 📂 Project Structure
@@ -106,11 +116,13 @@ SNAPPY_LLM
 ├── frontend
 │   ├── components
 │   ├── contexts
+│   ├── firebase
 │   ├── hooks
 │   ├── pages
 │   ├── services
 │   ├── types
-│   └── utils
+│   ├── utils
+│   └── data
 │
 ├── backend
 │   ├── config
@@ -118,6 +130,7 @@ SNAPPY_LLM
 │   ├── routers
 │   ├── schemas
 │   ├── services
+│   ├── static
 │   └── utils
 │
 └── README.md
@@ -181,13 +194,19 @@ http://127.0.0.1:8000
 
 ## Frontend
 
-Create `.env`
-
-```env
 VITE_API_URL=http://127.0.0.1:8000
-```
 
----
+VITE_FIREBASE_API_KEY=
+
+VITE_FIREBASE_AUTH_DOMAIN=
+
+VITE_FIREBASE_PROJECT_ID=
+
+VITE_FIREBASE_STORAGE_BUCKET=
+
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+
+VITE_FIREBASE_APP_ID=
 
 ## Backend
 
@@ -244,24 +263,29 @@ UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_ACCESS_KEY
 
 # 🛣 Roadmap
 
-- 👤 Better Person Images (Wikipedia API)
+- 🧠 Complete Long-Term Memory
 - 📄 PDF Chat (RAG)
-- 📎 File Upload
+- 📎 File Upload & Analysis
 - 🎥 Streaming Responses
-- 🖼 Image Understanding
+- 🖼 Better Person Image Retrieval
 - 🎤 Voice Assistant
 - 🔊 Text To Speech
-- 🧠 Long-Term Memory
 - 📤 Export Chats
-- 🔐 Authentication
-- ☁ Deploy (Vercel + Render)
+- ☁ Cloud Chat Sync
+- 🤖 AI Agents
+- 🧩 Code Interpreter
+- 🖼 AI Image Generation
 - 🌍 Multi-language Support
 
 ---
 
 # 📷 Screenshots
-
-> Screenshots & demo GIFs will be added soon.
+<img width="1277" height="635" alt="Screenshot 2026-07-14 181845" src="https://github.com/user-attachments/assets/a3b340c5-584e-4786-863b-adc7909fe6a0" />
+<img width="1902" height="868" alt="Screenshot 2026-07-14 184434" src="https://github.com/user-attachments/assets/29eeba49-51ba-4947-9c1c-82e94b617027" />
+<img width="1557" height="867" alt="Screenshot 2026-07-14 184501" src="https://github.com/user-attachments/assets/0c4ee35c-8171-4c7e-adb2-77a13293cf01" />
+<img width="1562" height="870" alt="Screenshot 2026-07-14 184534" src="https://github.com/user-attachments/assets/cbceddad-8e8b-4a70-8eb3-92eb85147529" />
+<img width="1570" height="865" alt="Screenshot 2026-07-14 184604" src="https://github.com/user-attachments/assets/fa8fd8fa-43a5-47ff-b38c-26607c62535d" />
+<img width="1553" height="872" alt="Screenshot 2026-07-14 184643" src="https://github.com/user-attachments/assets/973f602c-b8ef-4f27-aecf-730b1b901fed" />
 
 ---
 
@@ -284,20 +308,34 @@ UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_ACCESS_KEY
 ---
 
 # 👨‍💻 Developer
-
 ### Aditya Kumar Upadhyay
 
 AI & Machine Learning Engineer
 
-**GitHub**
+Specializing in:
+
+- Artificial Intelligence
+- Machine Learning
+- Large Language Models (LLMs)
+- Retrieval-Augmented Generation (RAG)
+- Natural Language Processing (NLP)
+- Full-Stack AI Development
+
+🌐 Portfolio
+
+https://adityaupadhyay.tech
+
+💻 GitHub
 
 https://github.com/aadi121k
 
-**LinkedIn**
+💼 LinkedIn
 
-https://www.linkedin.com/in/adityaupadhyay5k
+https://linkedin.com/in/adityaupadhyay5k
 
----
+📧 Email
+
+aadikumar311@gmail.com
 
 # 🤝 Contributing
 
