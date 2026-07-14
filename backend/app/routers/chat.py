@@ -12,9 +12,10 @@ router = APIRouter(
 @router.post("/", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     result = chat_service.generate_response(
-        message=request.message,
-        model=request.model,
-    )
+    message=request.message,
+    model=request.model,
+    history=request.history,
+)
 
     if isinstance(result, dict):
         return ChatResponse(

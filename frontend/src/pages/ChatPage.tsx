@@ -68,10 +68,15 @@ const ChatContent: React.FC = () => {
 
     try {
       const response = await apiService.sendMessage({
-        content: message,
-        conversationId: currentConversation?.id,
-        model: settings.model,
-      });
+  content: message,
+  conversationId: currentConversation?.id,
+  model: settings.model,
+
+  history: (currentConversation?.messages || []).map((m) => ({
+    role: m.role,
+    content: m.content,
+  })),
+});
 
       addMessage(
     response.message.content,

@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 import { cn } from '../../utils/helpers';
 
-interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string;
 }
@@ -11,22 +12,43 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
             {label}
           </label>
         )}
+
         <textarea
           ref={ref}
           className={cn(
-            'w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 transition-all duration-200 resize-none',
-            'focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500',
-            'hover:border-slate-300',
-            error && 'border-red-500 focus:ring-red-500/20 focus:border-red-500',
+            'w-full rounded-xl px-4 py-3 resize-none transition-all duration-200',
+
+            // Dark Theme
+            'bg-slate-900 text-white placeholder:text-slate-500',
+            'border border-slate-700',
+
+            // Focus
+            'focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500',
+
+            // Hover
+            'hover:border-slate-600',
+
+            // Disabled
+            'disabled:opacity-60 disabled:cursor-not-allowed',
+
+            // Error
+            error &&
+              'border-red-500 focus:ring-red-500/20 focus:border-red-500',
+
             className
           )}
           {...props}
         />
-        {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
+
+        {error && (
+          <p className="mt-1.5 text-sm text-red-400">
+            {error}
+          </p>
+        )}
       </div>
     );
   }

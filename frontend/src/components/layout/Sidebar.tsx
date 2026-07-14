@@ -218,7 +218,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-       {/* Footer */}
+       
 <div className="p-3 border-t border-slate-100 space-y-3">
   <button
     onClick={() => navigate('/settings')}
@@ -231,14 +231,30 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     Settings
   </button>
 
-  <div className="text-center border-t border-slate-100 pt-3">
-    <p className="text-xs font-medium text-slate-600">
-      Powered by <span className="text-indigo-600">Groq</span>
-    </p>
-    <p className="text-[11px] text-slate-400 mt-1">
-      Built by <span className="font-medium">Aditya Upadhyay</span>
-    </p>
-  </div>
+  <div className="border-t border-slate-200 pt-4 text-center">
+
+  <p className="text-xs uppercase tracking-widest text-slate-400">
+    Powered by
+  </p>
+
+  <p className="text-base font-bold text-indigo-400 mt-1">
+    Groq
+  </p>
+
+  <div className="mt-5">
+  <p className="text-xs uppercase tracking-widest text-slate-400">
+    Built by
+  </p>
+
+  <h2 className="mt-2 text-[17px] font-semibold text-gray-700">
+    Aditya Kumar Upadhyay
+</h2>
+
+  <p className="text-sm text-slate-400 mt-1">
+    AI Engineer
+  </p>
+</div>
+</div>
 </div>
       </motion.aside>
 

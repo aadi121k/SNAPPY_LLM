@@ -5,6 +5,11 @@ class WikimediaService:
     BASE_URL = "https://commons.wikimedia.org/w/api.php"
 
     def search_images(self, query: str, limit: int = 3):
+
+        headers = {
+            "User-Agent": "SnappyAI/1.0 (aadikumar311@gmail.com)"
+        }
+
         params = {
             "action": "query",
             "generator": "search",
@@ -14,11 +19,13 @@ class WikimediaService:
             "prop": "imageinfo",
             "iiprop": "url",
             "format": "json",
+            "origin": "*",
         }
 
         try:
             response = requests.get(
                 self.BASE_URL,
+                headers=headers,
                 params=params,
                 timeout=10,
             )
@@ -32,6 +39,7 @@ class WikimediaService:
             images = []
 
             for page in pages.values():
+
                 image_info = page.get("imageinfo")
 
                 if not image_info:

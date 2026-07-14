@@ -1,3 +1,4 @@
+from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,6 +9,7 @@ app = FastAPI(
     description="Production-ready backend for SNAPPY LLM",
     version="1.0.0",
 )
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # CORS Configuration
 app.add_middleware(

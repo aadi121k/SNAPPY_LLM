@@ -63,18 +63,18 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           isUser ? 'items-end' : 'items-start'
         )}
       >
-        <div
-          className={cn(
-            'rounded-2xl px-4 py-3 shadow-sm',
-            isUser
-              ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white'
-              : 'bg-white border border-slate-100 text-slate-700'
-          )}
-        >
+       <div
+  className={cn(
+    'rounded-2xl px-4 py-3 shadow-sm',
+    isUser
+      ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white'
+      : 'bg-slate-900 border border-slate-700 text-white'
+  )}
+>
           {isUser ? (
             <p className="whitespace-pre-wrap text-sm">{message.content}</p>
           ) : (
-            <div className="prose prose-sm prose-slate max-w-none prose-pre:bg-slate-50 prose-pre:border prose-pre:border-slate-200 prose-code:text-indigo-600">
+            <div className="prose prose-invert prose-sm max-w-none prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-700 prose-code:text-cyan-300">
               <ReactMarkdown
   remarkPlugins={[remarkGfm]}
   components={{a({ href, children }) {

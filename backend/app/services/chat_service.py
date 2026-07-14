@@ -33,7 +33,37 @@ class ChatService:
     def __init__(self):
         self.client = groq_provider.get_client()
 
-    def generate_response(self, message: str, model: str):
+    # ----------------------------
+    # Check if images should be shown
+    # ----------------------------
+    def should_show_images(self, message: str):
+        lower = message.lower()
+
+        image_keywords = [
+            "image",
+            "images",
+            "photo",
+            "photos",
+            "picture",
+            "pictures",
+            "pic",
+            "wallpaper",
+            "show image",
+            "show images",
+            "show photo",
+            "show photos",
+        ]
+
+        return any(keyword in lower for keyword in image_keywords)
+
+    def generate_response(
+    self,
+    message: str,
+    model: str,
+    history: list = None,
+):      
+        if history is None:
+           history = []
 
         lower = message.lower().strip()
 
@@ -83,16 +113,68 @@ Click below to open **{site.title()}**
         )
 
         system_prompt = f"""
-You are SNAPPY LLM.
+You are SNAPPY LLM, an advanced AI assistant.
 
-You are a modern AI assistant similar to ChatGPT.
+You were created by Aditya Kumar Upadhyay.
+
+ABOUT YOUR CREATOR
+
+Name:
+Aditya Kumar Upadhyay
+
+Role:
+AI Engineer
+
+Specialization:
+Artificial Intelligence,
+Machine Learning,
+Large Language Models (LLMs),
+Retrieval-Augmented Generation (RAG),
+Natural Language Processing (NLP),
+Full-Stack AI Development.
+
+GitHub:
+https://github.com/aadi121k
+
+LinkedIn:
+https://linkedin.com/in/adityaupadhyay5k
+
+Portfolio:
+https://adityaupadhyay.tech
+
+Email:
+aadikumar311@gmail.com
+
+If anyone asks ANYTHING related to:
+
+- Who built you?
+- Who created you?
+- Who made you?
+- Who is your creator?
+- Who developed you?
+- Who owns Snappy?
+- Who is Aditya?
+- Who is Aditya Kumar Upadhyay?
+- Tell me about Aditya.
+- Tell me about your developer.
+- About creator.
+- About developer.
+- Founder.
+- Owner.
+- Aadi.
+- Aditya.
+
+Always answer using the creator information above.
+
+Do not say you don't know.
+
+For every other question, behave like a professional AI assistant.
 
 Rules:
 
 - Answer naturally.
 - Use Markdown.
 - Format code properly.
-- Never say you cannot browse the internet.
 - If Web Search Results are available below,
   use them as the primary source.
 
@@ -100,18 +182,33 @@ Web Search Results:
 
 {web_context}
 """
+        messages = [
+            {
+                "role": "system",
+                "content": system_prompt,
+            }
+        ]
+
+        # Previous conversation
+        for msg in history:
+            messages.append(
+                {
+                    "role": msg.role,
+                    "content": msg.content,
+                }
+            )
+
+        # Current user message
+        messages.append(
+            {
+                "role": "user",
+                "content": message,
+            }
+        )
+
         response = self.client.chat.completions.create(
             model=groq_model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": message,
-                },
-            ],
+            messages=messages,
             temperature=settings.TEMPERATURE,
             max_tokens=settings.MAX_TOKENS,
         )

@@ -24,9 +24,9 @@ export const HomePage: React.FC = () => {
 
   return (
     <Layout model={settings.model} onModelChange={updateModel}>
-      <div className="flex flex-col h-full">
-        <div className="flex-1 overflow-y-auto">
-          <div className="max-w-4xl mx-auto px-4 pt-16 pb-8">
+      <div className="flex flex-col h-full bg-[#0B1120]">
+        <div className="flex-1 overflow-y-auto bg-[#0B1120]">
+          <div className="max-w-4xl mx-auto px-4 pt-16 pb-8 bg-[#0B1120]">
             <WelcomeSection />
 
             <motion.div
@@ -52,7 +52,7 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="sticky bottom-0 bg-gradient-to-t from-slate-50 via-slate-50/95 to-transparent pt-8 px-4 pb-4">
+        <div className="sticky bottom-0 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/95 to-transparent pt-8 px-4 pb-4">
           <div className="max-w-3xl mx-auto">
             <div className="rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
               <textarea

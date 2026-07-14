@@ -7,6 +7,11 @@ interface SendMessageParams {
   content: string;
   conversationId?: string;
   model: AIModel;
+
+  history?: {
+    role: string;
+    content: string;
+  }[];
 }
 
 interface SendMessageResponse {
@@ -32,10 +37,11 @@ export const sendMessage = async (
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        message: params.content,
-        model: params.model,
-      }),
+body: JSON.stringify({
+  message: params.content,
+  model: params.model,
+  history: params.history || [],
+}),
     });
 
     if (!res.ok) {
